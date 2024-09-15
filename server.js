@@ -1,4 +1,4 @@
-
+require("dotenv").config(); 
 const session = require( "express-session");
 const passport = require("passport");
 const bcrypt = require( "bcryptjs");
@@ -11,7 +11,7 @@ const express = require( "express");
 const Razorpay = require("razorpay");
 const cors = require("cors");
 require("./db/conn"); // Ensure this points to the correct path of your connection file
-require("dotenv").config(); // Add the missing parentheses to invoke config
+
 
 
 
@@ -93,8 +93,8 @@ const PORT = process.env.PORT;
 
 
 
-const clientid = "762044144985-l52175nbuk9gjqghtjgsuhuln3vs2efo.apps.googleusercontent.com";
-const clientsecret = "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";
+const clientid = process.env.CLIENT_ID;
+const clientsecret =process.env.CLIENT_SECRET;
 
 app.use(cors({
   origin: "http://localhost:3000",
